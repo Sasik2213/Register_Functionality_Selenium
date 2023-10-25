@@ -9,6 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 public class Login {
 //	driver.findElement(By.xpath("//input[@id=\"input-firstname\"]")).sendKeys("Sasi");
 //	driver.findElement(By.xpath("//input[@id=\"input-lastname\"]")).sendKeys("kiran");
+//	(//a[normalize-space()='Register'])[1]
+	//input[@name="agree"]
+	//input[@value="Continue"]
+//	btn btn-primary
 	public WebDriver driver;
 
 	public Login(WebDriver driver) {
@@ -27,6 +31,14 @@ public class Login {
 	By confirm_password = By.xpath("//input[@id=\"input-confirm\"]");
 	
 	By dropDown = By.xpath("//span[@class=\"caret\"]");
+	
+	@FindBy(css = "input[value=\"Continue\"]")
+	WebElement KickSubmit;
+	
+	@FindBy(xpath = "(//a[normalize-space()='Register'])[1]")
+	WebElement RegOp;
+	@FindBy(name = "agree")
+	WebElement Agree;
 	
 	@FindBy(id = "input-firstname")
 	WebElement Name;
@@ -59,5 +71,11 @@ public class Login {
 	}
 	public void performDropDown() {
 		Caret.click();
+	}
+	public void performRegisterOperation() {
+		RegOp.click();
+	}
+	public void PerformSubmit() {
+		KickSubmit.click();
 	}
 }

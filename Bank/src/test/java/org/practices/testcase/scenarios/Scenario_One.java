@@ -14,6 +14,8 @@ import org.testcases.scenarios.mainFiles.Login;
 //import org.testcases.scenarios.mainFiles.Home;
 import org.testng.annotations.Test;
 
+import com.github.dockerjava.api.model.Driver;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Scenario_One {
@@ -31,12 +33,27 @@ public class Scenario_One {
 				.findElement(By.xpath("//a[normalize-space()=\"Register\"]")).getText().equalsIgnoreCase("Register"))
 				.findFirst().orElse(null);
 		selectDropdown.click();
-		login.Your_Personal_Details("Sasi", "test", "test.sasi@gmail.com", "254912");
+		login.Your_Personal_Details("Sasi", "test", "test111.sasi@gmail.com", "254912");
 		login.Your_Password("Sasik@123", "Sasik@123");
 		driver.findElement(By.xpath("//input[@value=\"0\"]")).click();
 		driver.findElement(By.xpath("//input[@name=\"agree\"]")).click();
 		driver.findElement(By.xpath("//input[@value=\"Continue\"]")).click();
+		driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/a")).click();
+		driver.findElement(By.linkText("Edit your account information")).click();
+		
 
+	}
+	
+	@Test
+	public void Scenario2() throws Exception {
+		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://tutorialsninja.com/demo");
+		Login login = new Login(driver);
+		login.performDropDown();
+		login.performRegisterOperation();
+		login.PerformSubmit();
 	}
 
 }
