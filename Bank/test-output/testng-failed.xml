@@ -5,7 +5,7 @@
     <classes>
       <class name="org.practices.testcase.scenarios.Scenario_One">
         <methods>
-          <include name="Scenario2"/>
+          <include name="Scenario3"/>
         </methods>
       </class> <!-- org.practices.testcase.scenarios.Scenario_One -->
     </classes>

@@ -78,4 +78,8 @@ public class Login {
 	public void PerformSubmit() {
 		KickSubmit.click();
 	}
+	public void AgreeRacha() {
+		Agree.click();
+	}
+	
 }

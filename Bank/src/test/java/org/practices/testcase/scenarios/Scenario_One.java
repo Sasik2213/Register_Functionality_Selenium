@@ -55,5 +55,20 @@ public class Scenario_One {
 		login.performRegisterOperation();
 		login.PerformSubmit();
 	}
+	@Test
+	public void Scenario3() throws Exception {
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://tutorialsninja.com/demo");
+		Login login = new Login(driver);
+		login.performDropDown();
+		login.performRegisterOperation();
+		login.Your_Personal_Details("test","ing", "test568@gmail.com", "787986");
+		login.Your_Password("Sasik@#", "");
+		login.AgreeRacha();
+		login.PerformSubmit();
+		
+		
+	}
 
 }
